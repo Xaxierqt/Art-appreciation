@@ -115,7 +115,7 @@ const songsContent = `
             <p>I’ve been fighting battles most people don’t even see. I walk into rooms trying to look confident, but inside, I’m just hoping nobody notices how insecure I feel about everything — my weight, my face, my worth. I’ve been skinny all my life. People call it a blessing, but to me, it’s a curse. I look in the mirror and see someone small. Fragile. Forgettable. There are days I wonder if I’ll ever feel like I’m enough — physically, emotionally, humanly.</p>
             <p>And I try. God, I try. I wear makeup to hide how hollow I feel. I dress up, fix my hair, put on a brave face — but nothing changes the fact that I often feel invisible. Like I have to perform just to be seen. Like I have to be excellent just to be tolerated.</p>
             <p>Now in college at National University Laguna, I’m still pushing, still pretending, still exhausting myself just to keep up. I only have classes twice a week, but the pressure never ends. I worry about money, I overthink constantly, I feel like I’m falling behind even when I’m doing my best. And when I get home, the fight doesn’t stop — it just gets quieter. Quieter, but heavier.</p>
-            <p>I love my cats and my Ian n Shaine ^_^ I mean — Cubcub and Xavier. They’re the few things that make me feel safe. They don’t judge. They don’t expect me to be perfect. They just curl up beside me like I matter. And maybe that’s why I hold onto them so tightly. Because sometimes, they’re the only proof I have that I’m not completely alone. thank you four ;>.</p>
+            <p>I love my cats and my Ian n Shaine ^_^ I mean — Cubcub and Xavier. They’re the few things that make me feel safe. They don’t judge. They don’t expect me to be perfect. They just curl up beside me like I matter. And maybe that’s why I hold onto them so tightly. Because sometimes, they’re the only proof I have that I’m not completely alone. thank you fo(u)r ur existence ;>.</p>
             <p>My dream? It used to be big. Now, I just want peace. I want to wake up one day without this crushing fear of being forgotten. I want to walk into a room and not feel like I’m taking up space I don’t deserve. I want to stop feeling guilty for wanting more when we barely have enough.</p>
             <p>This essay isn’t about victory. It’s about survival. It’s about what it means to grow up feeling like the world is always one step ahead, and you’re stuck running barefoot in broken glass just trying to keep up.</p>
             <p>I’m Jhustyn Ferrer. I’m tired. I’m insecure. I’m always questioning my worth — even when I’m winning.<br>But I’m still here. And maybe that’s enough.<br>Or maybe it’s not.<br></p>
@@ -176,31 +176,27 @@ sidebarLinks.forEach(link => {
     });
 });
 
-// Function to create and animate snowflakes
-function createSnowflakes() {
-    const snowflakeContainer = document.createElement('div');
-    snowflakeContainer.classList.add('snowflake-container');
-    document.body.appendChild(snowflakeContainer);
+// Function to create and animate rain drops in the background
+function createRainEffect() {
+    const rainContainer = document.querySelector('.rain-background');
 
     setInterval(() => {
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        snowflake.style.left = Math.random() * window.innerWidth + 'px';
-        snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Random fall duration
-        snowflake.style.opacity = Math.random();
-        snowflake.style.fontSize = Math.random() * 10 + 10 + 'px'; // Random size
-        snowflake.innerHTML = '❄'; // Snowflake character
-        snowflakeContainer.appendChild(snowflake);
+        const rainDrop = document.createElement('div');
+        rainDrop.classList.add('rain-drop');
+        rainDrop.style.left = Math.random() * 100 + '%';
+        rainDrop.style.animationDuration = Math.random() * 2 + 1.5 + 's'; // Random fall duration
+        rainDrop.style.opacity = Math.random() * 0.5 + 0.5; // Subtle opacity
+        rainContainer.appendChild(rainDrop);
 
-        // Remove snowflake after animation ends
-        snowflake.addEventListener('animationend', () => {
-            snowflake.remove();
+        // Remove rain drop after animation ends
+        rainDrop.addEventListener('animationend', () => {
+            rainDrop.remove();
         });
-    }, 200); // Create a new snowflake every 200ms
+    }, 300); // Create a new rain drop every 300ms
 }
 
-// Call the snowfall function when the page loads
+// Call the rain effect function when the page loads
 window.onload = function() {
     playBlueSong();
-    createSnowflakes(); // Start snowfall effect
+    createRainEffect(); // Start rain effect
 };
